@@ -1,0 +1,34 @@
+.body{
+    padding: 0px;
+    margin: 0px;
+}
+/* =================== NAVBAR ===================*/
+#logo_img{
+width: 150px;
+margin-right: 5px;
+
+}
+
+#barra_navegacion{
+    background-color: #2E86C1;
+}
+
+.texto_barra_navegacion{
+    font-size: 13px;
+}
+
+#inicio{
+    text-decoration: none;
+}
+
+/* =================== SECTION INFORMACIÓN DEL CLIENTE ===================*/
+#Encabezados{
+    background-color: #2470a3c2;
+
+}
+
+/* =================== SECTION CAPTURA ===================*/
+#Finalizar{
+    background-color: #2E86C1;
+    margin-top: 22px;
+}

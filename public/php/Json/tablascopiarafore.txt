@@ -1,0 +1,1 @@
+[{"nombretabla":"ActorCampaignStateDetail","total":" ","porfecha":"SI","id":"1"},{"nombretabla":"InteractionDetail","total":" ","porfecha":"SI","id":"2"},{"nombretabla":"InteractionActorDetail","total":" ","porfecha":"NO","id":"3"},{"nombretabla":"CallInteractionDetail","total":" ","porfecha":"NO","id":"4"}]

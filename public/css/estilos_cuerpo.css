@@ -1,0 +1,100 @@
+body{
+  background: url(./ui-lightness/images/gplaypattern.png) repeat;
+}
+.cuerpo {
+	position: absolute;
+	top:150px;
+	width: 1120px;
+	height: 700px;
+	left:80px;
+	background: #F2F2F2;
+	box-shadow: 20px 14px 50px #999;
+	border-radius: 20px 20px 20px 20px;
+}
+.cuerpo_copys1 {
+	position: absolute;
+	top:150px;
+	width: 400px;
+	height: 250px;
+	left:425px;
+	background: #47648A;
+	box-shadow: 20px 14px 50px #999;
+	border-radius: 20px 20px 20px 20px;
+}
+.cuerpo_copys2 {
+	position: absolute;
+	top:160px;
+	width: 380px;
+	height: 230px;
+	left:435px;
+	background: #F2F2F2;
+	border-radius: 20px 20px 20px 20px;
+}
+.cuerpo_Capturas1 {
+	position: absolute;
+	top:150px;
+	width: 640px;
+	height: 250px;
+	left:275px;
+	background: #47648A;
+	box-shadow: 20px 14px 50px #999;
+	border-radius: 20px 20px 20px 20px;
+}
+
+.cuerpo_Capturas2 {
+	position: absolute;
+	top:160px;
+	width: 620px;
+	height: 230px;
+	left:285px;
+	background: #F2F2F2;
+	border-radius: 20px 20px 20px 20px;
+}
+
+.cuerpo_GrandeCapturas1 {
+	position: absolute;
+	top:150px;
+	width: 640px;
+	height: 550px;
+	left:320px;
+	background: #47648A;
+	box-shadow: 20px 14px 50px #999;
+	border-radius: 20px 20px 20px 20px;
+}
+
+.cuerpo_GrandeCapturas2 {
+	position: absolute;
+	top:160px;
+	width: 620px;
+	height: 530px;
+	left:330px;
+	background: #F2F2F2;
+	border-radius: 20px 20px 20px 20px;
+}
+
+.cuerpo_copys3 {
+    position: absolute;
+    top: 150px;
+    width: 400px;
+    height: 420px;
+    left: 425px;
+    background: #47648A;
+    box-shadow: 20px 14px 50px #999;
+    border-radius: 20px 20px 20px 20px;
+}
+
+.cuerpo_copys4 {
+    position: absolute;
+    top: 160px;
+    width: 380px;
+    height: 400px;
+    left: 435px;
+    background: #F2F2F2;
+    border-radius: 20px 20px 20px 20px;
+}
+
+
+
+
+
+

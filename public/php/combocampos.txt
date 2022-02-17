@@ -1,0 +1,1 @@
+[{"id":"1","nom":"clienteid"},{"id":"2","nom":"cliente"},{"id":"3","nom":"nombre"},{"id":"4","nom":"telefono1"},{"id":"5","nom":"telefono2"},{"id":"6","nom":"telefono3"},{"id":"7","nom":"telefono4"}]

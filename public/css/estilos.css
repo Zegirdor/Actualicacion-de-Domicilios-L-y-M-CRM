@@ -1,0 +1,75 @@
+
+.titulo {
+	position: absolute;
+	top:-21px;
+	width: 100%;
+	height: 100px;
+	left:0%;
+	box-shadow: 20px 14px 100px #999;
+	 background: -webkit-linear-gradient(#16254C, #48658B);
+   background: -moz-linear-gradient(#16254C, #344A81);
+   background: -o-linear-gradient(blue, black);
+}
+
+.titulo2 {
+	position: absolute;
+	top:79px;
+	width: 100%;
+	height: 35px;
+	left:0%;
+	box-shadow: 20px 15px 20px #999;
+	background: -webkit-linear-gradient(#D5D5D5, #FFFFFF);
+	
+}
+
+.formato {
+	font-family: 'Myriad Pro', 'Myriad', helvetica, arial, sans-serif;
+	text-shadow: 1px 1px 2px #292929;
+	letter-spacing: 0.8px;
+	-webkit-text-stroke: 0.8px black;
+	font-weight: bold;
+}
+
+.formato2 {
+	font-size: 15px;
+	font-family: 'Myriad Pro', 'Myriad', helvetica, arial, sans-serif;
+	text-shadow: 1px 1px 2px #292929;
+	letter-spacing: 0.8px;
+	-webkit-text-stroke: 0.5px black;
+	font-weight: bold;
+}
+
+.formato3 {
+	font-size: 14px;
+	font-family: helvetica;
+	text-shadow: 1px 0.5px 1.5px #292929;
+	letter-spacing: 0.8px;
+	-webkit-text-stroke: 0.6px black;
+}
+
+.label {
+    font-size: 25px;
+	margin-top: 0;
+	font-family: 'Myriad Pro', 'Myriad', helvetica, arial, sans-serif;
+	text-shadow: 2px 3px 3px #292929;
+	letter-spacing: 0.8px;
+	-webkit-text-stroke: 0.1px white;
+	font-weight: bold;
+	color:#F2F2F2;
+}
+
+.notas {
+    font-size: 13px;
+	font-family: 'Myriad Pro', 'Myriad', helvetica, arial, sans-serif;
+	letter-spacing: 0.8px;
+	font-weight: bold;
+	color: black;
+}
+
+label {
+    font-size: 18px;
+	letter-spacing: 0.2px;
+	text-shadow: 1px 1px 2px #292929;
+	font-weight: bold;
+	color: black;
+}
