@@ -4,8 +4,40 @@ var Inicia = function(){
 
     //Utilizado Arrow Function
 
+    //Función que nos llena el CRM con los datos de cliente
+    const llenaCRM = () =>{
+
+        /*Genesys Cloud nos proporciona en el campo Número de Cliente y en Número de teléfono los datos necesarios para obtener la información de nuestro cliente.
+        Obtener estos campos:*/
+        let numeroCliente  = document.getElementById("numeroCliente");
+        let numeroTelefono = document.getElementById("numeroTelefono");
+
+        /* Ajax */
+
+        let parametros =    "opc=llenaCRM"   +
+        "&numeroCliente="   + numeroCliente  +
+        "&numeroTelefono="  + numeroTelefono +
+        "&id="              + Math.random();
+        $.ajax({
+
+            type: 'POST',
+            url:  'php/funciones.php',
+            data: parametros,
+            dataType: 'json',
+            success: function(response){
+
+            }
+
+        })
+
+
+
+
+
+    }
+
     //Función que despliega los fines de gestión de la campaña.
-    const  mostrarFinesGestion = () => {
+    const mostrarFinesGestion = () => {
 
         //Obtener id del select del combo
         let finesGestion = document.getElementById("finesGestion");
@@ -17,7 +49,7 @@ var Inicia = function(){
             /*Ajax*/
 
             let parametros =    "opc=mostrarFinesGestion" +
-                                "&id=" + Math.random();
+            "&id=" + Math.random();
             $.ajax({
                 type:'POST',
                 url:'php/funciones.php',
@@ -52,19 +84,18 @@ var Inicia = function(){
     const guardaCRM = () => {
 
        //Obtener todos los campos
-        let numeroCliente      = document.getElementById("numeroCliente").innerHTML;
-            fechaNacimiento     = document.getElementById("fechaNacimiento").innerHTML;
-            sexo                = document.getElementById("sexo").innerHTML;
-            estadoCivil         = document.getElementById("estadoCivil").innerHTML;
-            tipotelefono        = document.getElementById("tipotelefono").innerHTML;
-            numeroTelefono      = document.getElementById("numeroTelefono").innerHTML;
-            domicilio           = document.getElementById("domicilio").innerHTML;
-            puntualidad         = document.getElementById("puntualidad").innerHTML;
-            situacionEspecial   = document.getElementById("situacionEspecial").innerHTML;
-            vencido             = document.getElementById("vencido").innerHTML;
-            numeroCliente       = document.getElementById("numeroCliente").innerHTML;
+        let numeroCliente      = document.getElementById("numeroCliente").innerText;
+            fechaNacimiento     = document.getElementById("fechaNacimiento").innerText;
+            sexo                = document.getElementById("sexo").innerText;
+            estadoCivil         = document.getElementById("estadoCivil").innerText;
+            tipotelefono        = document.getElementById("tipotelefono").innerText;
+            numeroTelefono      = document.getElementById("numeroTelefono").innerText;
+            domicilio           = document.getElementById("domicilio").innerText;
+            puntualidad         = document.getElementById("puntualidad").innerText;
+            situacionEspecial   = document.getElementById("situacionEspecial").innerText;
+            vencido             = document.getElementById("vencido").innerText;
+            numeroCliente       = document.getElementById("numeroCliente").innerText;
             //Obtener por jQuery la option seleccionada de Resultado de la Llamada
-            finesGestion = $( "#finesGestion option:selected" ).text();
 
 
        console.log(numeroCliente);
@@ -92,8 +123,10 @@ var Inicia = function(){
 
 
     //Invocamos las funciones
+    llenaCRM();
     mostrarFinesGestion();
     guardaCRM();
+
 
 }
 
