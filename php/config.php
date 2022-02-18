@@ -12,6 +12,7 @@ define('PASS_84', 'f7c0853fd9048a496fa6b70eb21f4fb6');
 define('BD_NAME_84', 'actualizaciondomicilioslym');
 
 //Conexión a servidor
+
 function conectaServer84(){
 	$server = '10.27.113.84';
 	$user = 'sysdatos';

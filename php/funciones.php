@@ -1,7 +1,7 @@
 <?php
 
 //Incluimos el archivo donde tenemos las conexiones a los servidores
-include 'config.php';
+include('../php/config.php');
 
 $option = $_POST['opc'];
 switch ($option){
@@ -23,24 +23,29 @@ Class Captura{
         //Conexion al servidor
         $conn = conectaServer84();
 
+        $datosCombo = array();
+		$arrayCombo= array();
+
         //Realizar consulta
-        $sQuery = "SELECT * FROM cat_quiencontesto;";
+        $sQuery = "SELECT * FROM cat_fingestion_lym;";
 
         $Consulta = pg_query($conn, $sQuery);
         pg_close($conn);
 
-        //Creamos un arreglo para los resultados de la consulta
-		$datosCombo = array();
-		$arrayCombo= array();
-
         if($Consulta > 0){
 
-            $response = true;
+            while($array = pg_fetch_array($Consulta)){
 
-            $datosCombo['id'] = trim($array=['id']);
-            $datosCombo['descripcion'] = trim($array=['descripcion']);
+                $response = true;
+                $estado = 1;
 
-            $arrayCombo = array_map('utf8_encode', $datosCombo);
+                $datosCombo['id'] = trim($array['id_fingestion']);
+                $datosCombo['descripcion'] = trim($array['descripcion']);
+
+                $arrayCombo[] = array_map('utf8_encode', $datosCombo);
+
+            }
+
 
         }
 
@@ -51,6 +56,4 @@ Class Captura{
 
 
 }
-
-
 ?>

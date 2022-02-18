@@ -112,25 +112,25 @@
             <div class="col-4">
 
                 <label for=""><strong> Número de Cliente: </strong></label>
-                <span class="input-group-text">90110787</span><br>
+                <span class="input-group-text" id="numeroCliente">90110787</span><br>
                 <label for=""><strong> Fecha de Nacimiento: </strong></label>
-                <span class="input-group-text">1997-04-27</span><br>
+                <span class="input-group-text" id="fechaNacimiento">1997-04-27</span><br>
             </div>
 
             <div class="col-4">
 
                 <label for=""><strong> Nombre del Cliente: </strong></label>
-                <span class="input-group-text">PERAZA FRANCO LESLIE JANETH</span><br>
+                <span class="input-group-text" id="nombreCliente">PERAZA FRANCO LESLIE JANETH</span><br>
 
                 <div class="row">
                     <div class="col-6">
                         <label for=""><strong> Sexo: </strong></label>
-                        <span class="input-group-text">FEMENINO</span><br>
+                        <span class="input-group-text" id="sexo">FEMENINO</span><br>
                     </div>
 
                     <div class="col-6">
                         <label for=""><strong> Estado Civil: </strong></label>
-                        <span class="input-group-text">SOLTERO(A)</span><br>
+                        <span class="input-group-text" id="estadoCivil">SOLTERO(A)</span><br>
                     </div>
 
                 </div>
@@ -140,9 +140,9 @@
             <div class="col-4">
 
                 <label for=""><strong> Tipo teléfono: </strong></label>
-                <span class="input-group-text">2</span><br>
+                <span class="input-group-text" id="tipotelefono">2</span><br>
                 <label for=""><strong> Número de teléfono: </strong></label>
-                <span class="input-group-text">6671223344</span><br>
+                <span class="input-group-text" id="numeroTelefono">6671223344</span><br>
 
             </div>
 
@@ -151,7 +151,7 @@
         <div class="row position-relative">
             <div class="col-6 position-absolute start-50 translate-middle">
                 <label for=""><strong> Domicilio: </strong></label>
-                <span class="input-group-text">CALLE 1 ENTRE CALLES 2 Y 3 #123 COLONIA CALLES</span><br>
+                <span class="input-group-text" id="domicilio">CALLE 1 ENTRE CALLES 2 Y 3 #123 COLONIA CALLES</span><br>
             </div>
         </div>
 
@@ -166,35 +166,32 @@
 
             <div class="text-center mt-3 container-fluid" id="Encabezados"><h4 class="text-white">INFORMACIÓN DEL CRÉDITO</h4></div><br><br>
 
-
-            <div class="row position-relative mt-4">
-                <div class="col-4 position-absolute top-0 start-0">
+            <div class="row mt-1">
+                <div class="col-4">
                     <label for=""><strong> Puntualidad: </strong></label>
-                    <span class="input-group-text">A</span>
+                    <span class="input-group-text" id="puntualidad">A</span>
                 </div>
-            </div>
 
-            <div class="row position-relative">
-                <div class="col-4 position-absolute top-0 start-50 translate-middle-x">
+                <div class="col-4 ">
                     <label for=""><strong> Situación especial: </strong></label>
-                    <span class="input-group-text">M</span>
+                    <span class="input-group-text" id="situacionEspecial">M</span>
                 </div>
+
+                <div class="col-4 ">
+                    <label for=""><strong> Vencido: </strong></label>
+                    <span class="input-group-text" id="vencido">90156</span>
+                </div>
+
             </div>
 
-            <div class="row position-relative">
-                <div class="col-4 position-absolute top-0 end-0">
-                    <label for=""><strong> Vencido: </strong></label>
-                    <span class="input-group-text">90156</span>
-                </div>
-            </div>
 
         </div>
     </section>
 
-    <br><br>
+
 
     <!-- CAPTURA -->
-    <section id="Captura" class="mt-4">
+    <section id="Captura" class="mt-2">
 
         <div class="row container-fluid mt-3">
 
@@ -260,7 +257,7 @@
             <div class="col-lg-4">
                 <label for=""><strong> Quién contestó: </strong></label>
                 <select class="form-select" name="" id="quienContesto">
-                    <option value=""></option>
+                    <option value="">Selecciona quién contestó</option>
                     <option value="">CLIENTE</option>
                     <option value="">CONYUGE O PADRES</option>
                     <option value="">OTRO FAMILIAR</option>
@@ -270,10 +267,11 @@
                 </select>
             </div>
 
-            <div class="col-lg-4">
+            <div class="col-lg-4" >
                 <label for=""><strong> Resultado de la llamada: </strong></label>
                 <select class="form-select" name="" id="finesGestion">
-                    <option value=""></option>
+
+                </select>
             </div>
 
             <div class="col-lg-4">
