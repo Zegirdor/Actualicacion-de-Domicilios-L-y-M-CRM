@@ -106,31 +106,31 @@
 
             <div class="text-center mt-3 container-fluid" id="Encabezados"><h4 class="text-white">INFORMACIÓN DEL CLIENTE</h4></div><br><br>
 
-            <label><strong> Fecha de Captura: <span class="input-group-text col-1">14-02-2022</span></strong></label><br><br>
+            <label><strong> Fecha de Captura: <span class="input-group-text col-1">18-02-2022</span></strong></label><br><br>
 
 
             <div class="col-4">
 
                 <label for=""><strong> Número de Cliente: </strong></label>
-                <span class="input-group-text" id="numeroCliente">90110787</span><br>
+                <span class="input-group-text" id="numeroCliente">451330171</span><br>
                 <label for=""><strong> Fecha de Nacimiento: </strong></label>
-                <span class="input-group-text" id="fechaNacimiento">1997-04-27</span><br>
+                <span class="input-group-text" id="fechaNacimiento"></span><br>
             </div>
 
             <div class="col-4">
 
                 <label for=""><strong> Nombre del Cliente: </strong></label>
-                <span class="input-group-text" id="nombreCliente">PERAZA FRANCO LESLIE JANETH</span><br>
+                <span class="input-group-text" id="nombreCliente"></span><br>
 
                 <div class="row">
                     <div class="col-6">
                         <label for=""><strong> Sexo: </strong></label>
-                        <span class="input-group-text" id="sexo">FEMENINO</span><br>
+                        <span class="input-group-text" id="sexo"></span><br>
                     </div>
 
                     <div class="col-6">
                         <label for=""><strong> Estado Civil: </strong></label>
-                        <span class="input-group-text" id="estadoCivil">SOLTERO(A)</span><br>
+                        <span class="input-group-text" id="estadoCivil"></span><br>
                     </div>
 
                 </div>
@@ -140,9 +140,9 @@
             <div class="col-4">
 
                 <label for=""><strong> Tipo teléfono: </strong></label>
-                <span class="input-group-text" id="tipotelefono">2</span><br>
+                <span class="input-group-text" id="tipotelefono"></span><br>
                 <label for=""><strong> Número de teléfono: </strong></label>
-                <span class="input-group-text" id="numeroTelefono">6671223344</span><br>
+                <span class="input-group-text" id="numeroTelefono">6461782655</span><br>
 
             </div>
 
@@ -151,7 +151,7 @@
         <div class="row position-relative">
             <div class="col-6 position-absolute start-50 translate-middle">
                 <label for=""><strong> Domicilio: </strong></label>
-                <span class="input-group-text" id="domicilio">CALLE 1 ENTRE CALLES 2 Y 3 #123 COLONIA CALLES</span><br>
+                <span class="input-group-text" id="domicilio"></span><br>
             </div>
         </div>
 
@@ -169,17 +169,17 @@
             <div class="row mt-1">
                 <div class="col-4">
                     <label for=""><strong> Puntualidad: </strong></label>
-                    <span class="input-group-text" id="puntualidad">A</span>
+                    <span class="input-group-text" id="puntualidad"></span>
                 </div>
 
                 <div class="col-4 ">
                     <label for=""><strong> Situación especial: </strong></label>
-                    <span class="input-group-text" id="situacionEspecial">M</span>
+                    <span class="input-group-text" id="situacionEspecial"></span>
                 </div>
 
                 <div class="col-4 ">
                     <label for=""><strong> Vencido: </strong></label>
-                    <span class="input-group-text" id="vencido">90156</span>
+                    <span class="input-group-text" id="vencido"></span>
                 </div>
 
             </div>
