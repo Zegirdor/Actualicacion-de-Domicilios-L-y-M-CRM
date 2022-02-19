@@ -11,13 +11,13 @@ switch ($option){
     break;
 
     case 'llenaCRM':
-        InformacionCliente::llenaCRM(trim($_POST['numeroCliente']), trim($_POST['numeroTelefono']));
+        InformacionCliente::llenaCRM(trim($_POST['numeroCliente']));
     break;
 }
 
 Class InformacionCliente{
 
-    public static function llenaCRM($numCliente, $numTelefono){
+    public static function llenaCRM($numCliente){
 
         $response = false;
         $estado = 0;
@@ -30,7 +30,7 @@ Class InformacionCliente{
          $arrayCliente = array();
 
          //Realizar consulta
-         $sQuery = "SELECT * FROM tmp_generacion_lym WHERE num_cliente = '".$numCliente."'::BIGINT AND telefono_contactado = '".$numTelefono."'::BIGINT;";
+         $sQuery = "SELECT * FROM tmp_generacion_lym WHERE num_cliente = '".$numCliente."'::BIGINT LIMIT 1;";
 
          //Guardar nuestro query en una variable y cerramos conexión con el servidor
          $Consulta = pg_query($conn, $sQuery);
