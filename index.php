@@ -102,59 +102,6 @@
     <!-- INFORMACIÓN DEL CLIENTE-->
     <section id="Informacion_Cliente">
 
-        <div class="row container-fluid">
-
-            <div class="text-center mt-3 container-fluid" id="Encabezados"><h4 class="text-white">INFORMACIÓN DEL CLIENTE</h4></div><br><br>
-
-            <label><strong> Fecha de Captura: <span class="input-group-text col-1">18-02-2022</span></strong></label><br><br>
-
-
-            <div class="col-4">
-
-                <label for=""><strong> Número de Cliente: </strong></label>
-                <span class="input-group-text" id="numeroCliente">451330171</span><br>
-                <label for=""><strong> Fecha de Nacimiento: </strong></label>
-                <span class="input-group-text" id="fechaNacimiento"></span><br>
-            </div>
-
-            <div class="col-4">
-
-                <label for=""><strong> Nombre del Cliente: </strong></label>
-                <span class="input-group-text" id="nombreCliente"></span><br>
-
-                <div class="row">
-                    <div class="col-6">
-                        <label for=""><strong> Sexo: </strong></label>
-                        <span class="input-group-text" id="sexo"></span><br>
-                    </div>
-
-                    <div class="col-6">
-                        <label for=""><strong> Estado Civil: </strong></label>
-                        <span class="input-group-text" id="estadoCivil"></span><br>
-                    </div>
-
-                </div>
-
-            </div>
-
-            <div class="col-4">
-
-                <label for=""><strong> Tipo teléfono: </strong></label>
-                <span class="input-group-text" id="tipotelefono"></span><br>
-                <label for=""><strong> Número de teléfono: </strong></label>
-                <span class="input-group-text" id="numeroTelefono">6461782655</span><br>
-
-            </div>
-
-        </div><br>
-
-        <div class="row position-relative">
-            <div class="col-6 position-absolute start-50 translate-middle">
-                <label for=""><strong> Domicilio: </strong></label>
-                <span class="input-group-text" id="domicilio"></span><br>
-            </div>
-        </div>
-
     </section>
 
     <br><br>
