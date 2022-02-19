@@ -59,7 +59,7 @@ Class InformacionCliente{
 
         }
 
-        $endJSON = array('estado' => $estado, 'response' => $response,'arrayCombo' => $arrayCliente);
+        $endJSON = array('estado' => $estado, 'response' => $response,'arrayCliente' => $arrayCliente);
         echo json_encode($endJSON);
 
 
@@ -81,7 +81,11 @@ Class Captura{
 		$arrayCombo= array();
 
         //Realizar consulta
-        $sQuery = "SELECT * FROM cat_fingestion_lym;";
+       $sQuery = "SELECT * FROM cat_fingestion_lym;";
+
+        //Guardar nuestro query en una variable y cerramos conexión con el servidor
+        $Consulta = pg_query($conn, $sQuery);
+        pg_close($conn);
 
         if($Consulta > 0){
 
@@ -107,5 +111,7 @@ Class Captura{
 
 
 }
+
+//InformacionCliente::llenaCRM('451330171','6461782655');
 
 ?>
