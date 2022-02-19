@@ -26,7 +26,6 @@ var Inicia = function(){
 
         let parametros =    "opc=llenaCRM"   +
         "&numeroCliente="   + numeroCliente  +
-        "&numeroTelefono="  + numeroTelefono +
         "&id="              + Math.random();
         $.ajax({
 
