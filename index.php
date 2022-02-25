@@ -175,7 +175,7 @@
 
         <div id="NI">
             <label for="numInterior"><strong> # Interior: </strong></label>
-            <input type="text" name="nameNumInterior" class="form-control" placeholder="Escriba el número interior del domicilio" id="numInterior" required>
+            <input type="text" class="form-control" placeholder="Escriba el número interior del domicilio" id="numInterior">
             <div class="invalid-feedback">
                 Por favor introduce el número interior
             </div>
@@ -183,7 +183,7 @@
         <br>
 
             <label for="numExterior"><strong> # Exterior: </strong></label>
-            <input type="text" name="numExterior" class="form-control inputExterior" placeholder="Escriba el número exterior del domicilio" id="numExterior"><br>
+            <input type="text" class="form-control inputExterior" placeholder="Escriba el número exterior del domicilio" id="numExterior"><br>
 
             <label for=""><strong> Edificio: </strong></label>
             <input type="text" class="form-control" placeholder="Escriba el edificio" id="edificio">
@@ -212,6 +212,7 @@
         </div>
 
         </div>
+        <br>
 
         <div class="container">
             <div class="row col-lg-12">

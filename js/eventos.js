@@ -14,37 +14,48 @@ var Inicia = function(){
     let participanteId  = ulrValores.get('participanteId');
 
 
-
     console.log("Bienvenido has entrado al archivo js");
 
-    const validaFormulario2 = () =>{
 
-        if(selectFin.selectedIndex == 1){
+    const validaFormulario = () =>{
+
+        debugger
+        //Cuando el fin de gestión sea DOMICILIO CAPTURADO, validar los campos obligatorios
+        if(selectFin.selectedIndex === 1){
+
+               //Utilizando jQuery
+               $("#sestado").prop("required");
+               $("#municipio").prop("required");
+               $("#colonia").prop("required");
+               $("#calle").prop("required");
+               $("#complemento").prop("required");
+
             (function() {
                 'use strict';
-                //Utilizando jQuery
-                $("#sestado").prop("required");
-                $("#municipio").prop("required");
-                $("#colonia").prop("required");
-                $("#calle").prop("required");
-                $("#numInterior").prop("required");
-                $("#complemento").prop("required");
-
                   var forms = document.getElementsByClassName('needs-validation');
 
                   var validation = Array.prototype.filter.call(forms, function(form) {
                     form.addEventListener('submit', function(event) {
                       if (form.checkValidity() === false) {
+                          console.log(form.checkValidity());
                         event.preventDefault();
                         event.stopPropagation();
                       }
+                      //Punto clave: si las condiciones se cumplieron, se registra la información del formulario
+                      if(form.checkValidity() === true){
+                        //form.classList.add('was-validated');
+                        //finalizarLlamada();
+                    }
                       form.classList.add('was-validated');
                     }, false);
                   });
               })();
+
+              return;
         }
 
-        if(selectFin.selectedIndex == 0 || selectContesto.selectedIndex == 0){
+        //Cuando no se seleccione el QUIÉN CONTESTÓ o el RESULTADO DE LA LLAMADA
+        if(selectFin.selectedIndex > 1 || selectContesto.selectedIndex === 0){
             console.log("Tienes que elegir un fin de gestion o quién contestó");
 
             //Utilizando jQuery
@@ -52,7 +63,6 @@ var Inicia = function(){
             $("#municipio").removeAttr("required");
             $("#colonia").removeAttr("required");
             $("#calle").removeAttr("required");
-            $("#numInterior").removeAttr("required");
             $("#complemento").removeAttr("required");
 
             (function() {
@@ -66,20 +76,18 @@ var Inicia = function(){
                         event.preventDefault();
                         event.stopPropagation();
                       }
+                      //Punto clave: si las condiciones se cumplieron, se registra la información del formulario
+                      if(form.checkValidity() === true){
+                        //form.classList.add('was-validated');
+                        //finalizarLlamada();
+                    }
                       form.classList.add('was-validated');
                     }, false);
                   });
               })();
 
-
+             return;
         }
-        debugger
-        if(selectFin.selectedIndex !== 1 && selectFin.selectedIndex !== 0){
-
-
-            finalizarLlamada();
-        }
-
     }
 
 
@@ -247,8 +255,7 @@ var Inicia = function(){
               }
         })
 
-
-
+        console.log(numeroCliente);
 
 
     }
@@ -326,41 +333,28 @@ var Inicia = function(){
 
     /*-----------------------------------------------------------------------------------------------*/
 
-    const validaFormulario = () =>{
-        debugger
-        let formularioCRM   = document.querySelector('#formCaptura');
-        let E = document.getElementsByClassName('inputEstado');
-        let M = document.getElementById('inputMunicipio');
-        const C = document.getElementById('inputColonia');
-        let Ca = document.getElementById('inputCalle');
-        let NE = document.getElementById('inputExterior');
-        let Co = document.getElementById('inputComplemento');
-
-        console.log("Así es");
-
-
-
-    }
-
     //Botón finalizar
     const finalizarLlamada = () =>{
         debugger
-        console.log(selectTipoT.selectedIndex);
+
+        //alert("El registro se guardó correctamente");
+        console.log(selectTipoT.selectedIndex );
+
 
         //Obtener todos los campos
 
        // - INFORMACION DEL CLIENTE
-       let  numeroCliente       = document.getElementById("numeroCliente");
-            nombreCliente       = document.getElementById("nombreCliente");
-            fechaNacimiento     = document.getElementById("fechaNacimiento");
-            sexo                = document.getElementById("sexo");
-            sestadoCivil        = document.getElementById("sestadoCivil");
-            tipotelefono        = document.getElementById("tipotelefono");
-            numeroTelefono      = document.getElementById("numeroTelefono");
-            domicilio           = document.getElementById("domicilio");
-            puntualidad         = document.getElementById("puntualidad");
-            situacionEspecial   = document.getElementById("situacionEspecial");
-            vencido             = document.getElementById("vencido");
+       let  numeroCliente       = document.getElementById("numeroCliente").innerText;
+            nombreCliente       = document.getElementById("nombreCliente").innerText;
+            fechaNacimiento     = document.getElementById("fechaNacimiento").innerText;
+            sexo                = document.getElementById("sexo").innerText;
+            sestadoCivil        = document.getElementById("sestadoCivil").innerText;
+            tipotelefono        = document.getElementById("tipotelefono").innerText;
+            numeroTelefono      = document.getElementById("numeroTelefono").innerText;
+            domicilio           = document.getElementById("domicilio").innerText;
+            puntualidad         = document.getElementById("puntualidad").innerText;
+            situacionEspecial   = document.getElementById("situacionEspecial").innerText;
+            vencido             = document.getElementById("vencido").innerText;
         // - INFORMACION DEL CREDITO
             puntualidad         = document.getElementById("puntualidad");
             situacionEspecial   = document.getElementById("situacionEspecial");
@@ -368,17 +362,17 @@ var Inicia = function(){
 
                 let parametros =             "opc=finalizarCRM"                       +
                 "&fecha="                   +   fecha                                 +
-                "&numeroCliente="           +   numeroCliente.innerText               +
-                "&nombreCliente="           +   nombreCliente.innerText               +
-                "&numeroTelefono="          +   numeroTelefono.innerText              +
-                "&fechaNacimiento="         +   fechaNacimiento.innerText             +
-                "&sexo="                    +   sexo.innerText                        +
-                "&sestadoCivil="            +   sestadoCivil.innerText                +
-                "&tipotelefono="            +   tipotelefono.innerText                +
-                "&domicilio="               +   domicilio.innerText                   +
-                "&puntualidad="             +   puntualidad.innerText                 +
-                "&situacionEspecial="       +   situacionEspecial.innerText           +
-                "&vencido="                 +   vencido.innerText                     +
+                "&numeroCliente="           +   numeroCliente                         +
+                "&nombreCliente="           +   nombreCliente                         +
+                "&numeroTelefono="          +   numeroTelefono                        +
+                "&fechaNacimiento="         +   fechaNacimiento                       +
+                "&sexo="                    +   sexo                                  +
+                "&sestadoCivil="            +   sestadoCivil                          +
+                "&tipotelefono="            +   tipotelefono                          +
+                "&domicilio="               +   domicilio                             +
+                "&puntualidad="             +   puntualidad                           +
+                "&situacionEspecial="       +   situacionEspecial                     +
+                "&vencido="                 +   vencido                               +
                 "&sestado="                 +   sestado.value                         +
                 "&municipio="               +   municipio.value                       +
                 "&colonia="                 +   colonia.value                         +
@@ -408,24 +402,17 @@ var Inicia = function(){
 
     }
 
-
-
-
-
     //Invocamos las funciones
     llenaCRM();
     mostrarFinesGestion();
-    //validaFormulario2();
-
     //Evento al botón de Finalizar
-    //validaFormulario();
-    let btnFinalizar = document.getElementById("Finalizar");
-    btnFinalizar.addEventListener("click", validaFormulario2, false);
 
+    let btnFinalizar = document.getElementById("Finalizar");
+    btnFinalizar.addEventListener("click", finalizarLlamada, false);
 
 }
 
 
-document.addEventListener('DOMContentLoaded', Inicia, true);
+document.addEventListener('DOMContentLoaded', Inicia, false);
 
 
