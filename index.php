@@ -109,30 +109,7 @@
     <!-- INFORMACIÓN DEL CRÉDITO-->
     <section id="Informacion_Credito">
 
-        <div class="row container-fluid">
 
-            <div class="text-center mt-3 container-fluid" id="Encabezados"><h4 class="text-white">INFORMACIÓN DEL CRÉDITO</h4></div><br><br>
-
-            <div class="row mt-1">
-                <div class="col-4">
-                    <label for=""><strong> Puntualidad: </strong></label>
-                    <span class="input-group-text" id="puntualidad"></span>
-                </div>
-
-                <div class="col-4 ">
-                    <label for=""><strong> Situación especial: </strong></label>
-                    <span class="input-group-text" id="situacionEspecial"></span>
-                </div>
-
-                <div class="col-4 ">
-                    <label for=""><strong> Vencido: </strong></label>
-                    <span class="input-group-text" id="vencido"></span>
-                </div>
-
-            </div>
-
-
-        </div>
     </section>
 
 
@@ -140,95 +117,167 @@
     <!-- CAPTURA -->
     <section id="Captura" class="mt-2">
 
+    <form id="formCaptura" method="post" class= "needs-validation" novalidate>
+
         <div class="row container-fluid mt-3">
 
-            <div class="text-center mt-3 container-fluid" id="Encabezados"><h4 class="text-white">CAPTURA</h4></div><br><br>
+        <div class="text-center mt-3 container-fluid" id="Encabezados"><h4 class="text-white">CAPTURA</h4></div><br><br>
 
-           <div class="col-3">
-               <label for=""><strong> Estado: </strong></label>
-               <input type="text" class="form-control" placeholder="Escriba el estado" id=""><br>
 
-               <label for=""><strong> Delegación/Municipio: </strong></label>
-               <input type="text" class="form-control" placeholder="Escriba la delegación o municipio" id=""><br>
+        <div class="col-3">
 
-               <label for=""><strong> Colonia: </strong></label>
-               <input type="text" class="form-control" placeholder="Escribe la colonia">
-           </div>
+            <div id="E">
+                <label for="sestado"><strong> Estado: </strong></label>
+                <input type="text" name="sestado" class="form-control sestado inputEstado" placeholder="Escriba el estado" id="sestado" required>
 
-           <div class="col-3">
-                <label for=""><strong> Calle: </strong></label>
-                <input type="text" class="form-control" placeholder="Escriba la calle" id=""><br>
-
-                <label for=""><strong> Entre calles: </strong></label>
-                <input type="text" class="form-control" placeholder="Escriba las entre calles del domicilio" id=""><br>
-
-                <label for=""><strong> Código postal: </strong></label>
-                <input type="text" class="form-control" placeholder="Escribe el código postal">
+                <div class="invalid-feedback">Por favor ingrese el estado</div>
             </div>
+            <br>
 
-            <div class="col-3">
-                <label for=""><strong> # Interior: </strong></label>
-                <input type="text" class="form-control" placeholder="Escriba el número interior del domicilio" id=""><br>
+            <div id="M">
+                <label for="municipio"><strong> Delegación/Municipio: </strong></label>
+                <input type="text" name="municipio" class="form-control inputMunicipio" placeholder="Escriba la delegación o municipio" id="municipio" required>
 
-                <label for=""><strong> # Exterior: </strong></label>
-                <input type="text" class="form-control" placeholder="Escriba el número exterior del domicilio" id=""><br>
-
-                <label for=""><strong> Edificio: </strong></label>
-                <input type="text" class="form-control" placeholder="Escriba el edificio">
+                <div class="invalid-feedback">Por favor ingrese el municipio</div>
             </div>
+            <br>
 
-            <div class="col-3">
-                <label for=""><strong> Complemento: </strong></label>
-                <input type="text" class="form-control" placeholder="Escriba información complementaria" id=""><br>
+            <div id="C">
+                <label for="colonia"><strong> Colonia: </strong></label>
+                <input type="text" name="colonia" class="form-control inputColonia" placeholder="Escribe la colonia" id="colonia" required>
+                <div class="invalid-feedback">
+                    Por favor introduce la colonia
+                </div>
+            </div>
+        </div>
 
-                <label for=""><strong> Teléfono adicional: </strong></label>
-                <input type="text" class="form-control" placeholder="Escriba un teléfono adicional" id=""><br>
+        <div class="col-3">
 
-                <label for=""><strong> Tipo de teléfono adicional: </strong></label>
-                <select class="form-select" name="" id="">
-                    <option value="casa">Casa</option>
-                    <option value="celular">Celular</option>
-                </select>
+            <div id= 'Ca'>
+                <label for="calle"><strong> Calle: </strong></label>
+                <input type="text" name="calle" class="form-control inputCalle" placeholder="Escriba la calle" id="calle" required>
+                <div class="invalid-feedback">
+                    Por favor introduce la calle
+                </div>
+            </div>
+            <br>
+
+            <label for=""><strong> Entre calles: </strong></label>
+            <input type="text" class="form-control" placeholder="Escriba las entre calles del domicilio" id="entreCalles">
+            <br>
+
+            <label for=""><strong> Código postal: </strong></label>
+            <input type="number" class="form-control" maxlength = "5" placeholder="Escribe el código postal" oninput="maxlengthNumber(this);" id="codigoPostal">
+
+        </div>
+
+        <div class="col-3">
+
+        <div id="NI">
+            <label for="numInterior"><strong> # Interior: </strong></label>
+            <input type="text" name="nameNumInterior" class="form-control" placeholder="Escriba el número interior del domicilio" id="numInterior" required>
+            <div class="invalid-feedback">
+                Por favor introduce el número interior
+            </div>
+        </div>
+        <br>
+
+            <label for="numExterior"><strong> # Exterior: </strong></label>
+            <input type="text" name="numExterior" class="form-control inputExterior" placeholder="Escriba el número exterior del domicilio" id="numExterior"><br>
+
+            <label for=""><strong> Edificio: </strong></label>
+            <input type="text" class="form-control" placeholder="Escriba el edificio" id="edificio">
+        </div>
+
+        <div class="col-3">
+
+            <div id="Co">
+                <label for="complemento"><strong> Complemento: </strong></label>
+                <input type="text" name="complemento" class="form-control inputComplemento" placeholder="Escriba información complementaria" id="complemento" required>
+                <div class="invalid-feedback">
+                    Por favor introduce un complemento
+                </div>
+            </div>
+            <br>
+
+            <label for=""><strong> Teléfono adicional: </strong></label>
+            <input type="number" class="form-control"  maxlength = "10" placeholder="Escriba un teléfono adicional" oninput="maxlengthTelephone(this);" id="telefonoAdicional"><br>
+
+            <label for=""><strong> Tipo de teléfono adicional: </strong></label>
+            <select class="form-select" name="" id="tipoTel">
+                <option value="">Selecciona un tipo de teléfono</option>
+                <option value="casa">Casa</option>
+                <option value="celular">Celular</option>
+            </select>
+        </div>
+
+        </div>
+
+        <div class="container">
+            <div class="row col-lg-12">
+
+                <div class="col-lg-4">
+                    <label for=""><strong> Quién contestó: </strong></label>
+                    <select class="form-select" name="" id="quienContesto" required>
+                        <option selected disabled value="">Selecciona quién contestó</option>
+                        <option value="">CLIENTE</option>
+                        <option value="">CONYUGE O PADRES</option>
+                        <option value="">OTRO FAMILIAR</option>
+                        <option value="">MENOR DE EDAD</option>
+                        <option value="">NO SE IDENTIFICA</option>
+
+                    </select>
+                    <div class="invalid-feedback">
+                        Por favor selecciona quién contestó la llamada
+                    </div>
+                </div>
+
+                <div class="col-lg-4" >
+                    <label for="finesGestion"><strong> Resultado de la llamada: </strong></label>
+                    <select class="form-select" name="" id="finesGestion" required>
+
+                    </select>
+                    <div class="invalid-feedback">
+                        Por favor selecciona un fin de gestión
+                    </div>
+                </div>
+
+                <div class="col-lg-4">
+                    <button class="btn text-white" type="submit" id="Finalizar">Finalizar</button>
+                </div>
+
             </div>
 
         </div>
+
+
+
+    </form>
 
     <br><br>
 
+    <script>
+        //Funciones de validacion en campos
+        const maxlengthNumber = (obj) =>{
+            console.log(obj.value);
+
+            if(obj.value.length > obj.maxLength){
+                obj.value = obj.value.slice(0, obj.maxLength);
+            }
+        }
+
+        const maxlengthTelephone = (obj)=> {
+            console.log(obj.value);
+
+            if(obj.value.length > obj.maxLength){
+                obj.value = obj.value.slice(0, obj.maxLength);
+            }
+        }
+
+    </script>
+
+
     </section>
-
-    <div class="container">
-        <div class="row col-lg-12">
-
-
-            <div class="col-lg-4">
-                <label for=""><strong> Quién contestó: </strong></label>
-                <select class="form-select" name="" id="quienContesto">
-                    <option value="">Selecciona quién contestó</option>
-                    <option value="">CLIENTE</option>
-                    <option value="">CONYUGE O PADRES</option>
-                    <option value="">OTRO FAMILIAR</option>
-                    <option value="">MENOR DE EDAD</option>
-                    <option value="">NO SE IDENTIFICA</option>
-
-                </select>
-            </div>
-
-            <div class="col-lg-4" >
-                <label for=""><strong> Resultado de la llamada: </strong></label>
-                <select class="form-select" name="" id="finesGestion">
-
-                </select>
-            </div>
-
-            <div class="col-lg-4">
-                <button class="btn text-white" id="Finalizar">Finalizar</button>
-            </div>
-
-        </div>
-
-
-    </div>
 
 
     <footer class="mt-5">
