@@ -3,8 +3,8 @@
 //Incluimos el archivo donde tenemos las conexiones a los servidores
 include('../php/config.php');
 
-//Cachar variables de URL
 
+//Cachar variables de URL
 
 $option = $_POST['opc'];
 switch ($option){
@@ -18,6 +18,7 @@ switch ($option){
     break;
 
     case 'finalizarCRM':
+        //var_dump($option);
         Captura::finalizarCRM(  trim($_POST['fecha']),
                                 trim($_POST['numeroCliente']),          trim($_POST['nombreCliente']),
                                 trim($_POST['numeroTelefono']),         trim($_POST['fechaNacimiento']),
@@ -43,7 +44,7 @@ Class InformacionCliente{
 
 
         $response = false;
-        $sestado = 0;
+        $estado = 0;
 
          //Conexion al servidor
          $conn = conectaServer84();
@@ -65,7 +66,7 @@ Class InformacionCliente{
             while($array = pg_fetch_array($Consulta)){
 
                 $response = true;
-                $sestado = 1;
+                $estado = 1;
 
                 //Informacion del cliente
                 $datosCliente   ['nombreCliente']       = trim($array['nombre_cliente']);
@@ -99,7 +100,7 @@ Class InformacionCliente{
 
         }
 
-        $endJSON = array('sestado' => $sestado, 'response' => $response,'arrayCliente' => $arrayCliente);
+        $endJSON = array('estado' => $estado, 'response' => $response,'arrayCliente' => $arrayCliente);
         echo json_encode($endJSON);
 
 
@@ -112,7 +113,7 @@ Class Captura{
     public static function mostrarFinesGestion(){
 
         $response = false;
-        $sestado = 0;
+        $estado = 0;
 
         //Conexion al servidor
         $conn = conectaServer84();
@@ -132,7 +133,7 @@ Class Captura{
             while($array = pg_fetch_array($Consulta)){
 
                 $response = true;
-                $sestado = 1;
+                $estado = 1;
 
                 $datosCombo['id'] = trim($array['id_fingestion']);
                 $datosCombo['descripcion'] = trim($array['descripcion']);
@@ -144,7 +145,7 @@ Class Captura{
 
         }
 
-        $endJSON = array('sestado' => $sestado, 'response' => $response,'arrayCombo' => $arrayCombo);
+        $endJSON = array('estado' => $estado, 'response' => $response,'arrayCombo' => $arrayCombo);
         echo json_encode($endJSON);
 
     }
@@ -155,9 +156,8 @@ Class Captura{
                                         $colonia, $calle, $entreCalles, $codigoPostal, $numInterior, $numExterior,
                                         $edificio, $complemento, $telefonoAdicional, $tipoTelefonoAdicional, $quienContesto){
 
-
         $response = false;
-        $sestado = 0;
+        $estado = 0;
 
         //Conexion al servidor
         $conn = conectaServer84();
@@ -182,7 +182,7 @@ Class Captura{
             while($array = pg_fetch_array($Consulta)){
                 $response =  1;
 
-                $datosCRM['sestado'] = trim($array['sestado']);
+                $datosCRM['estado'] = trim($array['estado']);
                 $datosCRM['mensaje'] = trim($array['mensaje']);
 
                 $arrayCRM[] = array_map('utf8_encode', $datosCRM);
@@ -192,7 +192,7 @@ Class Captura{
 
         }
 
-        $endJSON = array('sestado' => $sestado, 'mensaje' => $mensaje, 'response' => $response,'arrayTable' => $arrayCRM);
+        $endJSON = array('estado' => $estado, 'mensaje' => $mensaje, 'response' => $response,'arrayTable' => $arrayCRM);
 		echo json_encode($endJSON);
 
     }

@@ -19,7 +19,6 @@ var Inicia = function(){
 
     const validaFormulario = () =>{
 
-        debugger
         //Cuando el fin de gestión sea DOMICILIO CAPTURADO, validar los campos obligatorios
         if(selectFin.selectedIndex === 1){
 
@@ -43,8 +42,9 @@ var Inicia = function(){
                       }
                       //Punto clave: si las condiciones se cumplieron, se registra la información del formulario
                       if(form.checkValidity() === true){
-                        //form.classList.add('was-validated');
-                        //finalizarLlamada();
+                        form.classList.add('was-validated');
+                        finalizarLlamada();
+                        return;
                     }
                       form.classList.add('was-validated');
                     }, false);
@@ -78,8 +78,9 @@ var Inicia = function(){
                       }
                       //Punto clave: si las condiciones se cumplieron, se registra la información del formulario
                       if(form.checkValidity() === true){
-                        //form.classList.add('was-validated');
-                        //finalizarLlamada();
+                        form.classList.add('was-validated');
+                        finalizarLlamada();
+                        return;
                     }
                       form.classList.add('was-validated');
                     }, false);
@@ -127,7 +128,6 @@ var Inicia = function(){
 
                 for(let i = 0; i < response.arrayCliente.length; i++){
 
-                    console.log("xd");
                     informacionClienteHTML = `
                     <div class="text-center mt-3 row container-fluid" id="Encabezados"><h4 class="text-white">INFORMACIÓN DEL CLIENTE</h4></div><br>
 
@@ -265,7 +265,6 @@ var Inicia = function(){
 
         //Obtener id del select del combo
         let finesGestion = document.getElementById("finesGestion");
-        console.log(finesGestion);
         let finesGestionHTML;
 
         //Despliegue de los fines de gestión
@@ -280,7 +279,6 @@ var Inicia = function(){
                 data:parametros,
                 dataType:'json',
                 success: function(response){
-                    console.log(response.sestado)
 
                     //Utilizando Template String e interpolación
 
@@ -333,12 +331,27 @@ var Inicia = function(){
 
     /*-----------------------------------------------------------------------------------------------*/
 
+    //Quitar acentos y tildes
+
+    const simbolosRaros = (campos) => {
+        debugger
+
+        for(let i = 0; i < campos.length; i ++){
+            if(campos[i] != ''){
+                campos[i] = campos[i].replace("Ñ","#");
+                //campos[i].normalize("NFD").replace(/[\u0300-\u036f]/g, "");
+            }
+        }
+
+        return campos;
+      }
+
     //Botón finalizar
     const finalizarLlamada = () =>{
         debugger
 
         //alert("El registro se guardó correctamente");
-        console.log(selectTipoT.selectedIndex );
+        console.log(selectTipoT.selectedIndex);
 
 
         //Obtener todos los campos
@@ -356,9 +369,18 @@ var Inicia = function(){
             situacionEspecial   = document.getElementById("situacionEspecial").innerText;
             vencido             = document.getElementById("vencido").innerText;
         // - INFORMACION DEL CREDITO
-            puntualidad         = document.getElementById("puntualidad");
-            situacionEspecial   = document.getElementById("situacionEspecial");
-            vencido             = document.getElementById("vencido");
+            puntualidad         = document.getElementById("puntualidad").innerText;
+            situacionEspecial   = document.getElementById("situacionEspecial").innerText;
+            vencido             = document.getElementById("vencido").innerText;
+
+        // Creamos un arreglo para quitar las Ñ y los acentos
+        const camposCRM = [sestado.value, municipio.value,colonia.value,calle.value,entreCalles.value,numInterior.value,numExterior.value,edificio.value,complemento.value];
+        simbolosRaros(camposCRM);
+        console.log(camposCRM);
+
+
+
+
 
                 let parametros =             "opc=finalizarCRM"                       +
                 "&fecha="                   +   fecha                                 +
@@ -373,16 +395,16 @@ var Inicia = function(){
                 "&puntualidad="             +   puntualidad                           +
                 "&situacionEspecial="       +   situacionEspecial                     +
                 "&vencido="                 +   vencido                               +
-                "&sestado="                 +   sestado.value                         +
-                "&municipio="               +   municipio.value                       +
-                "&colonia="                 +   colonia.value                         +
-                "&calle="                   +   calle.value                           +
-                "&entreCalles="             +   entreCalles.value                     +
-                "&codigoPostal="            +   codigoPostal.value                    +
-                "&numInterior="             +   numInterior.value                     +
-                "&numExterior="             +   numExterior.value                     +
-                "&edificio="                +   edificio.value                        +
-                "&complemento="             +   complemento.value                     +
+                "&sestado="                 +   camposCRM[0]                          +
+                "&municipio="               +   camposCRM[1]                          +
+                "&colonia="                 +   camposCRM[2]                          +
+                "&calle="                   +   camposCRM[3]                          +
+                "&entreCalles="             +   camposCRM[4]                     +
+                "&codigoPostal="            +   camposCRM[5]                    +
+                "&numInterior="             +   camposCRM[6]                     +
+                "&numExterior="             +   camposCRM[7]                     +
+                "&edificio="                +   camposCRM[8]                        +
+                "&complemento="             +   camposCRM[9]                     +
                 "&telefonoAdicional="       +   telefonoAdicional.value               +
                 "&tipoTelefonoAdicional="   +   selectTipoT.selectedIndex             +
                 "&quienContesto="           +   selectContesto.selectedIndex          +
@@ -394,6 +416,9 @@ var Inicia = function(){
                     dataType: 'json',
                     success: function(response){
                         console.log(response.mensaje);
+                    },
+                    complete: function(xhr){
+                        console.log("entro xd")
                     },
                     error: function(xhr){
                         console.log(xhr.responseText)
@@ -408,10 +433,9 @@ var Inicia = function(){
     //Evento al botón de Finalizar
 
     let btnFinalizar = document.getElementById("Finalizar");
-    btnFinalizar.addEventListener("click", finalizarLlamada, false);
+    btnFinalizar.addEventListener("click", validaFormulario, false);
 
 }
-
 
 document.addEventListener('DOMContentLoaded', Inicia, false);
 

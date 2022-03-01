@@ -2,7 +2,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
@@ -117,7 +117,7 @@
     <!-- CAPTURA -->
     <section id="Captura" class="mt-2">
 
-    <form id="formCaptura" method="post" class= "needs-validation" novalidate>
+    <form id="formCaptura" method="post" class= "needs-validation" accept-charset="utf-8" novalidate>
 
         <div class="row container-fluid mt-3">
 
@@ -128,7 +128,8 @@
 
             <div id="E">
                 <label for="sestado"><strong> Estado: </strong></label>
-                <input type="text" name="sestado" class="form-control sestado inputEstado" placeholder="Escriba el estado" id="sestado" required>
+                <input type="text" name="sestado" class="form-control sestado inputEstado" placeholder="Escriba el estado" id="sestado"
+                onkeyup="javascript:this.value=this.value.toUpperCase();" style="text-transform:uppercase;" required>
 
                 <div class="invalid-feedback">Por favor ingrese el estado</div>
             </div>
@@ -136,7 +137,8 @@
 
             <div id="M">
                 <label for="municipio"><strong> Delegación/Municipio: </strong></label>
-                <input type="text" name="municipio" class="form-control inputMunicipio" placeholder="Escriba la delegación o municipio" id="municipio" required>
+                <input type="text" name="municipio" class="form-control inputMunicipio" placeholder="Escriba la delegación o municipio" id="municipio"
+                onkeyup="javascript:this.value=this.value.toUpperCase();" style="text-transform:uppercase;" required>
 
                 <div class="invalid-feedback">Por favor ingrese el municipio</div>
             </div>
@@ -144,7 +146,8 @@
 
             <div id="C">
                 <label for="colonia"><strong> Colonia: </strong></label>
-                <input type="text" name="colonia" class="form-control inputColonia" placeholder="Escribe la colonia" id="colonia" required>
+                <input type="text" name="colonia" class="form-control inputColonia" placeholder="Escribe la colonia" id="colonia"
+                onkeyup="javascript:this.value=this.value.toUpperCase();" style="text-transform:uppercase;" required>
                 <div class="invalid-feedback">
                     Por favor introduce la colonia
                 </div>
@@ -155,7 +158,8 @@
 
             <div id= 'Ca'>
                 <label for="calle"><strong> Calle: </strong></label>
-                <input type="text" name="calle" class="form-control inputCalle" placeholder="Escriba la calle" id="calle" required>
+                <input type="text" name="calle" class="form-control inputCalle" placeholder="Escriba la calle" id="calle"
+                onkeyup="javascript:this.value=this.value.toUpperCase();" style="text-transform:uppercase;" required>
                 <div class="invalid-feedback">
                     Por favor introduce la calle
                 </div>
@@ -163,11 +167,13 @@
             <br>
 
             <label for=""><strong> Entre calles: </strong></label>
-            <input type="text" class="form-control" placeholder="Escriba las entre calles del domicilio" id="entreCalles">
+            <input type="text" class="form-control" placeholder="Escriba las entre calles del domicilio" id="entreCalles"
+            onkeyup="javascript:this.value=this.value.toUpperCase();" style="text-transform:uppercase;" >
             <br>
 
             <label for=""><strong> Código postal: </strong></label>
-            <input type="number" class="form-control" maxlength = "5" placeholder="Escribe el código postal" oninput="maxlengthNumber(this);" id="codigoPostal">
+            <input type="number" class="form-control" maxlength = "5" placeholder="Escribe el código postal" oninput="maxlengthNumber(this);" id="codigoPostal"
+            onkeyup="javascript:this.value=this.value.toUpperCase();" style="text-transform:uppercase;" >
 
         </div>
 
@@ -175,7 +181,8 @@
 
         <div id="NI">
             <label for="numInterior"><strong> # Interior: </strong></label>
-            <input type="text" class="form-control" placeholder="Escriba el número interior del domicilio" id="numInterior">
+            <input type="text" class="form-control" placeholder="Escriba el número interior del domicilio" id="numInterior"
+            onkeyup="javascript:this.value=this.value.toUpperCase();" style="text-transform:uppercase;" >
             <div class="invalid-feedback">
                 Por favor introduce el número interior
             </div>
@@ -183,17 +190,20 @@
         <br>
 
             <label for="numExterior"><strong> # Exterior: </strong></label>
-            <input type="text" class="form-control inputExterior" placeholder="Escriba el número exterior del domicilio" id="numExterior"><br>
+            <input type="text" class="form-control inputExterior" placeholder="Escriba el número exterior del domicilio" id="numExterior"
+            onkeyup="javascript:this.value=this.value.toUpperCase();" style="text-transform:uppercase;" ><br>
 
             <label for=""><strong> Edificio: </strong></label>
-            <input type="text" class="form-control" placeholder="Escriba el edificio" id="edificio">
+            <input type="text" class="form-control" placeholder="Escriba el edificio" id="edificio"
+            onkeyup="javascript:this.value=this.value.toUpperCase();" style="text-transform:uppercase;" >
         </div>
 
         <div class="col-3">
 
             <div id="Co">
                 <label for="complemento"><strong> Complemento: </strong></label>
-                <input type="text" name="complemento" class="form-control inputComplemento" placeholder="Escriba información complementaria" id="complemento" required>
+                <input type="text" name="complemento" class="form-control inputComplemento" placeholder="Escriba información complementaria" id="complemento"
+                onkeyup="javascript:this.value=this.value.toUpperCase();" style="text-transform:uppercase;" required>
                 <div class="invalid-feedback">
                     Por favor introduce un complemento
                 </div>
@@ -201,13 +211,14 @@
             <br>
 
             <label for=""><strong> Teléfono adicional: </strong></label>
-            <input type="number" class="form-control"  maxlength = "10" placeholder="Escriba un teléfono adicional" oninput="maxlengthTelephone(this);" id="telefonoAdicional"><br>
+            <input type="number" class="form-control"  maxlength = "10" placeholder="Escriba un teléfono adicional" oninput="maxlengthTelephone(this);" id="telefonoAdicional"
+            onkeyup="javascript:this.value=this.value.toUpperCase();" style="text-transform:uppercase;" ><br>
 
             <label for=""><strong> Tipo de teléfono adicional: </strong></label>
             <select class="form-select" name="" id="tipoTel">
-                <option value="">Selecciona un tipo de teléfono</option>
-                <option value="casa">Casa</option>
-                <option value="celular">Celular</option>
+                <option selected disabled value="">Selecciona un tipo de teléfono</option>
+                <option value="casa">CASA</option>
+                <option value="celular">CELULAR</option>
             </select>
         </div>
 

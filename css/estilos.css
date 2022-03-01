@@ -21,6 +21,10 @@ margin-right: 5px;
     text-decoration: none;
 }
 
+input{
+    text-transform:uppercase;
+}
+
 /* =================== SECTION INFORMACIÓN DEL CLIENTE ===================*/
 #Encabezados{
     background-color: #2470a3c2;
