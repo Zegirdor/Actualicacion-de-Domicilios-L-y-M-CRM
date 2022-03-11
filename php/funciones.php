@@ -54,7 +54,7 @@ Class InformacionCliente{
          $arrayCliente = array();
 
          //Realizar consulta
-         $sQuery = "SELECT * FROM tmp_generacion_lym WHERE num_cliente = '".$numCliente."'::BIGINT AND telefono_contactado = '".$numTelefono."'::BIGINT;";
+         $sQuery = "SELECT * FROM tmp_generacion_lym WHERE num_cliente = '".$numCliente."'::BIGINT";
 
 
          //Guardar nuestro query en una variable y cerramos conexión con el servidor
