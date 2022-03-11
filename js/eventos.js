@@ -8,13 +8,14 @@ var Inicia = function(){
     const variables = window.location.search;
     const ulrValores = new URLSearchParams(variables);
 
-    //let numeroCliente   = ulrValores.get('clienteid');
-    //let numeroTelefono  = ulrValores.get('answernumber');
+    let numeroCliente   = ulrValores.get('clienteid');
+    let numeroTelefono  = ulrValores.get('answernumber');
     let idAgente        = ulrValores.get('username');
     let participanteId  = ulrValores.get('participanteId');
 
 
     console.log("Bienvenido has entrado al archivo js");
+    console.log(numeroCliente);
 
 
     const validaFormulario = () =>{
@@ -105,8 +106,8 @@ var Inicia = function(){
         /*Genesys Cloud nos proporciona en el campo Número de Cliente y en Número de teléfono los datos necesarios para obtener la información de nuestro cliente.
         Obtener estos campos:*/
 
-        let numeroCliente = 201817039;
-        let numeroTelefono = 6461011719;
+        //let numeroCliente = 201817039;
+        //let numeroTelefono = 6461011719;
 
         console.log(numeroCliente);
         console.log(numeroTelefono);
@@ -137,7 +138,7 @@ var Inicia = function(){
 
                     <div class="col-4">
                         <label for=""><strong> Número de Cliente: </strong></label>
-                        <span class="input-group-text" id="numeroCliente">201817039</span><br>
+                        <span class="input-group-text" id="numeroCliente">${numeroCliente}</span><br>
                         <label for=""><strong> Fecha de Nacimiento: </strong></label>
                         <span class="input-group-text" id="fechaNacimiento">${response.arrayCliente[i]['fechaNacimiento']}</span><br>
                     </div>
@@ -163,7 +164,7 @@ var Inicia = function(){
                         <label for=""><strong> Tipo teléfono: </strong></label>
                         <span class="input-group-text" id="tipotelefono">${response.arrayCliente[i]['tipotelefono']}</span><br>
                         <label for=""><strong> Número de teléfono: </strong></label>
-                        <span class="input-group-text" id="numeroTelefono">6461011719</span><br>
+                        <span class="input-group-text" id="numeroTelefono">${numeroTelefono}</span><br>
                     </div><br>
 
                 </div><br>
@@ -339,7 +340,11 @@ var Inicia = function(){
         for(let i = 0; i < campos.length; i ++){
             if(campos[i] != ''){
                 campos[i] = campos[i].replace("Ñ","#");
-                //campos[i].normalize("NFD").replace(/[\u0300-\u036f]/g, "");
+                campos[i] = campos[i].replace("Á","A");
+                campos[i] = campos[i].replace("É","E");
+                campos[i] = campos[i].replace("Í","I");
+                campos[i] = campos[i].replace("Ó","O");
+                campos[i] = campos[i].replace("Ú","U");
             }
         }
 
@@ -376,8 +381,8 @@ var Inicia = function(){
         // Creamos un arreglo para quitar las Ñ y los acentos
         const camposCRM = [sestado.value, municipio.value,colonia.value,calle.value,entreCalles.value,numInterior.value,numExterior.value,edificio.value,complemento.value];
         simbolosRaros(camposCRM);
-        console.log(camposCRM);
 
+        console.log(camposCRM[9]);
 
 
 
@@ -399,12 +404,12 @@ var Inicia = function(){
                 "&municipio="               +   camposCRM[1]                          +
                 "&colonia="                 +   camposCRM[2]                          +
                 "&calle="                   +   camposCRM[3]                          +
-                "&entreCalles="             +   camposCRM[4]                     +
-                "&codigoPostal="            +   camposCRM[5]                    +
-                "&numInterior="             +   camposCRM[6]                     +
-                "&numExterior="             +   camposCRM[7]                     +
-                "&edificio="                +   camposCRM[8]                        +
-                "&complemento="             +   camposCRM[9]                     +
+                "&entreCalles="             +   camposCRM[4]                          +
+                "&codigoPostal="            +   codigoPostal.value                    +
+                "&numInterior="             +   camposCRM[5]                          +
+                "&numExterior="             +   camposCRM[6]                          +
+                "&edificio="                +   camposCRM[7]                          +
+                "&complemento="             +   camposCRM[8]                          +
                 "&telefonoAdicional="       +   telefonoAdicional.value               +
                 "&tipoTelefonoAdicional="   +   selectTipoT.selectedIndex             +
                 "&quienContesto="           +   selectContesto.selectedIndex          +
