@@ -1,10 +1,7 @@
-.body{
-    padding: 0px;
-    margin: 0px;
-}
+
 /* =================== NAVBAR ===================*/
 #logo_img{
-width: 150px;
+width: 250px;
 margin-right: 5px;
 
 }
@@ -27,7 +24,7 @@ input{
 
 /* =================== SECTION INFORMACIÓN DEL CLIENTE ===================*/
 #Encabezados{
-    background-color: #2470a3c2;
+    background-color: #4F96C6;
 
 }
 
