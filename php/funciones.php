@@ -53,7 +53,7 @@ Class InfoBarraNavegacion{
         $response =  false;
         $estado = 0;
 
-        $conn = conectaServer128();
+        $conn = postgreSQLServer128();
 
         $datosAgente = array();
         $arrayAgente = array();
@@ -93,7 +93,7 @@ Class InformacionCliente{
         $estado = 0;
 
          //Conexion al servidor
-         $conn = conectaServer88();
+         $conn = postgreSQLProductivo(); //DONE
 
          //Creamos arreglos para guardar los datos, $datosCliente para tenerlos todos, y $arrayCliente será para aplicarles un encode
          $datosCliente = array();
@@ -102,13 +102,20 @@ Class InformacionCliente{
          //Realizar consulta
         //  $sQuery = "SELECT * FROM tmp_generacion_lym WHERE num_cliente = '$numCliente'::BIGINT AND telefono_contactado = '$telefonoCliente'::BIGINT;";
         //  $sQuery = "SELECT * FROM tmp_generacion_lym WHERE num_cliente = $numCliente::BigInt AND Right(Telefono_Contactado::Text, 10) = Right('$telefonoCliente', 10);"; // Ángel
-        $sQuery = "SELECT 	D.nom_cliente, D.fec_nacimiento, D.des_sexo, D.des_estadocivil, 1 AS opc_tipotelefono, 
-                            D.des_domicilio, D.opc_puntualidad, D.opc_situacionespecial, D.imp_vencido 
-                    FROM mae_directoriolym AS D
-                    JOIN mae_generacionlym AS G
-                    ON D.num_cliente = G.num_cliente
-                    WHERE G.num_cliente = '$numCliente'::TEXT
-                    AND RIGHT(G.num_telefono::TEXT, 10) = RIGHT('$telefonoCliente', 10);";
+        $sQuery = "SELECT
+                    Nom_Nombre_Cliente nom_cliente,
+                    Fec_Fecha_Nacimiento fec_nacimiento,
+                    Des_Sexo,
+                    Des_Estado_Civil des_estadocivil,
+                    Arr_ID_Clave_Categoria_Telefono[Array_Position(Arr_Numeros_De_Telefono, '$telefonoCliente')] opc_tipotelefono,
+                    Des_Domicilio_Cliente des_domicilio,
+                    Opc_Puntualidad_de_Cliente opc_puntualidad,
+                    Clv_Situacion_Especial opc_situacionespecial,
+                    Imp_Saldo_Vencido imp_vencido
+                    FROM actualizacion_de_domicilios_l_y_m_directorio
+                    WHERE 0 = 0
+                    And '$telefonoCliente' = Any(Arr_Numeros_De_Telefono)
+                    And '$numCliente' = Num_Numero_Cliente;";
          //Guardar nuestro query en una variable y cerramos conexión con el servidor
         /*
         Ángel: Guardar el resultado de la consulta (que puede ser false en caso de error o el resultado de la consulta) en una variable y cerramos conexión con el servidor.
@@ -177,13 +184,13 @@ Class Captura{
         $estado = 0;
 
         //Conexion al servidor
-        $conn = conectaServer84();
+        $conn = postgreSQLProductivo(); //DONE
 
         $datosCombo = array();
 		$arrayCombo= array();
 
         //Realizar consulta
-       $sQuery = "SELECT * FROM cat_fingestion_lym WHERE tipo = 'FG_EJECUTIVO' ORDER BY id_fingestion;";
+       $sQuery = "Select ID, Fin_de_Gestion From Actualizacion_de_Domicilios_L_y_M_Fines_de_Gestion;";
 
         //Guardar nuestro query en una variable y cerramos conexión con el servidor
         $Consulta = pg_query($conn, $sQuery);
@@ -196,8 +203,8 @@ Class Captura{
                 $response = true;
                 $estado = 1;
 
-                $datosCombo['id'] = trim($array['id_fingestion']);
-                $datosCombo['descripcion'] = trim($array['descripcion']);
+                $datosCombo['id'] = trim($array['id']);
+                $datosCombo['descripcion'] = trim($array['fin_de_gestion']);
 
                 $arrayCombo[] = array_map('utf8_encode', $datosCombo);
 
@@ -230,7 +237,7 @@ Class Captura{
 
 
         //Conexion al servidor
-        $conn = conectaServer84();
+        $conn = postgreSQLProductivo();
 
         $estado  = 0;
 	    $mensaje = "No se ejecuto proceso";
@@ -296,7 +303,13 @@ Class Captura{
         }
 
 
-        //Realizar INSERTADO
+        //Realizar INSERTADO.
+        /*
+        Zegirdor: Que haga una inserción manual en la tabla, o crear una función (meror) donde
+        se reciba un Array de parámetros y que se inserten en la tabla dinámicamente, de esa
+        manera, si la estructura de la tabla cambia, simplemente hará falta cambiar lo que es
+        enviado aquí en el Array, en lugar de tener que modificar la función.
+        */
         $sQuery = "SELECT * FROM fun_CRM(   1,  '".$numeroAgente."'::BIGINT,        '".$nombreAgente."'::TEXT,      '".$numeroCliente."'::BIGINT,
                                                 '".$nombreCliente."'::TEXT,         '".$numeroTelefono."'::BIGINT,  '".$fechaNacimiento."'::DATE,
                                                 '".$sexo."'::TEXT,                  '".$sestadoCivil."'::TEXT,      '".$tipotelefono."'::TEXT,
@@ -339,7 +352,7 @@ Class Captura{
         $estado = 0;
 
         //Conexion al servidor
-        $conn = conectaServer84();
+        $conn = postgreSQLProductivo(); //DONE
 
         $estado  = 0;
 	    $mensaje = "No se ejecuto proceso";
@@ -347,7 +360,7 @@ Class Captura{
         $descripcionFines = array();
 		$arrayDescripcion= array();
 
-        $sQuery = "SELECT id_fingestion FROM cat_fingestion_lym WHERE descripcion =  '".$descripcion."'";
+        $sQuery = "SELECT ID FROM Actualizacion_de_Domicilios_L_y_M_Fines_de_Gestion WHERE Fin_de_Gestion = '$descripcion'";
 
         //Guardar nuestro query en una variable y cerramos conexión con el servidor
         $Consulta = pg_query($conn, $sQuery);
@@ -359,7 +372,7 @@ Class Captura{
                 $estado     =  100;
                 $response   = true;
 
-                $descripcionFines['id']  = trim($array['id_fingestion']);
+                $descripcionFines['id']  = $array['id'];
                 $mensaje                 = "CONSULTA PARA OBTENER EL ID DEL FIN DE GESTION REALIZADA CON EXITO";
 
                 $arrayDescripcion[] = array_map('utf8_encode', $descripcionFines);
