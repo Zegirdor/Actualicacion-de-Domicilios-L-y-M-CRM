@@ -65,7 +65,7 @@ function postgreSQLProductivo(){
 	$server = "10.44.1.215";
 	$user = "syscredito";
 	$pass = "2587fb5cd0e0c6112394cf4b033ce6f7";
-	$DB = "actualizacion_domicilios_lym";
+	$DB = strtolower("ActualizacionDeDatos");
 	$connection = pg_connect("host=$server dbname=$DB user=$user password=$pass");
 	if (!$connection) {
 		exit("Error de conexion servidor PostgreSQL ($server) Base de datos ($DB)");

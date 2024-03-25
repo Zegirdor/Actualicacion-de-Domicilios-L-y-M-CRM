@@ -30,11 +30,11 @@ $fec_horainicio = date("Y-m-d H:i:s");
     <!-- CSS -->
     <link rel="stylesheet" href="css/bootstrap.css">
     <link rel="stylesheet" href="css/bootstrap.css.map">
-    <link rel="stylesheet" href="css/bootstrap.min">
+    <!-- <link rel="stylesheet" href="css/bootstrap.min"> -->
     <link rel="stylesheet" href="css/bootstrap.min.css.map">
     <link rel="stylesheet" href="css/bootstrap-grid.css">
     <link rel="stylesheet" href="css/bootstrap-grid.css.map">
-    <link rel="stylesheet" href="css/bootstrap-grid.min">
+    <!-- <link rel="stylesheet" href="css/bootstrap-grid.min"> -->
     <link rel="stylesheet" href="css/bootstrap-grid.min.css.map">
     <link rel="stylesheet" href="css/bootstrap-reboot.css">
     <link rel="stylesheet" href="css/bootstrap-reboot.css.map">
@@ -43,7 +43,7 @@ $fec_horainicio = date("Y-m-d H:i:s");
 
     <!-- JS -->
     <script type="text/javascript" src="js/recursos/bootstrap.js"></script>
-    <script type="text/javascript" src="js/recursos/bootstrap.js.min.js"></script>
+    <!-- <script type="text/javascript" src="js/recursos/bootstrap.js.min.js"></script> -->
 
 
     <!-- SCRIPTS-->
@@ -189,9 +189,9 @@ $fec_horainicio = date("Y-m-d H:i:s");
             <label for="tipoTel"><strong> Tipo de teléfono adicional: </strong></label>
             <select class="form-control" name="" id="tipoTel">
                 
-                <option selected disabled value="">Selecciona un tipo de teléfono</option>
-                <option value="casa">CASA</option>
-                <option value="celular">CELULAR</option>
+                <option selected disabled value="7">Selecciona un tipo de teléfono</option>
+                <option value="1">FIJO/CASA</option>
+                <option value="2">MOVIL/CELULAR</option>
             </select>
         </div>
 

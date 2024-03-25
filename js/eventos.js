@@ -187,8 +187,8 @@ var Inicia = function(){
             success: function(response){
 
                 //Llenar en la barra de negación la sección de la información del agente en llamada
-                informacionAgenteHTML   =  '<label class="text-white texto_barra_navegacion col-lg-2 col-md-2" id="numeroAgente">' + numeroAgenteURL + '</label>'
-                                        +  '<label class="text-white texto_barra_navegacion col-lg-5 col-md-3" id="nombreAgente">' + response.arrayAgente[0]['nombreAgente'] + '</label>';
+                informacionAgenteHTML   =  '<label class="text-white texto_barra_navegacion col-lg-2 col-md-2" id="numeroAgente">' + response.arrayAgente.empleado + '</label>'
+                                        +  '<label class="text-white texto_barra_navegacion col-lg-5 col-md-3" id="nombreAgente">' + response.arrayAgente.nombre + '</label>';
 
                 document.getElementById("info_agente").innerHTML = informacionAgenteHTML;
 
@@ -463,7 +463,7 @@ var Inicia = function(){
             tipotelefono        = document.getElementById("tipotelefono").innerText,
             numeroTelefono      = document.getElementById("numeroTelefono").innerText,
             domicilio           = document.getElementById("domicilio").innerText;
-            //nombreAgente        = document.getElementById('nombreAgente').textContent;
+            nombreAgente        = document.getElementById('nombreAgente').textContent;
 
 
 
@@ -511,7 +511,7 @@ var Inicia = function(){
                     dataType: 'JSON',
                     data: parametros,
                     success: function(response){
-
+                        // alert(response);
                     },
                     complete:function(){
                         
@@ -638,7 +638,7 @@ var Inicia = function(){
     var markDone = function(){
         var parameters = new Array();
         return window.external.WorkspaceInvoke('MarkDone',parameters);
-        return;
+        // return;
     }
 
     var release = function(markDone,agentReady){
@@ -646,20 +646,20 @@ var Inicia = function(){
         parameters['MarkDone'] = markDone;
         parameters['AgentReady'] = agentReady;
         return window.external.WorkspaceInvoke('Release',parameters);
-        return;
+        // return;
     }
 
     var setAgentReady = function(){
         var parameters = new Array();
         return window.external.WorkspaceInvoke('AgentReady',parameters);
-        return;
+        // return;
     }
     var setDispositionCodeGenesys = function(dispositionCode){
         var parameters = new Array();
         //parameters['dispositionCode'] = document.getElementById('dispositionCode').value;
         parameters['dispositionCode'] = dispositionCode;
         return window.external.WorkspaceInvoke('SetDispositionCode',parameters);
-        return;
+        // return;
     }
 
     var lblLlamando = function(){
@@ -678,14 +678,14 @@ var Inicia = function(){
     var selectFin = document.getElementById('finesGestion');
     selectFin.addEventListener('change',
     function(){
-        let selectedFinGestion = this.options[selectFin.selectedIndex];
+        // let selectedFinGestion = this.options[selectFin.selectedIndex];
     });
 
     //Función que nos indica el quién contestó la llamada que el ejecutivo seleccione
     var selectContesto = document.getElementById('quienContesto');
     selectContesto.addEventListener('change',
     function(){
-        var selectedQuienContesto = this.options[selectContesto.selectedIndex];
+        // var selectedQuienContesto = this.options[selectContesto.selectedIndex];
 
 
     });
@@ -694,7 +694,7 @@ var Inicia = function(){
     var selectTipoT = document.getElementById('tipoTel');
     selectTipoT.addEventListener('change',
     function(){
-        let selectedTipoTel = this.options[selectTipoT.selectedIndex];
+        // let selectedTipoTel = this.options[selectTipoT.selectedIndex];
 
     });
 
