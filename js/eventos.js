@@ -388,7 +388,7 @@ var Inicia = function(){
 
                     for(let i = 0; i < response.arrayCombo.length; i++){
 
-                        finesGestionHTML += '<option value="" id="finGestion">' + response.arrayCombo[i]['descripcion'] + '</option>'
+                        finesGestionHTML += '<option value="' + response.arrayCombo[i]['id'] + '" id="finGestion">' + response.arrayCombo[i]['descripcion'] + '</option>'
                     };
 
                     finesGestion.innerHTML = finesGestionHTML;
@@ -472,35 +472,35 @@ var Inicia = function(){
             situacionEspecial   = document.getElementById("situacionEspecial").innerText,
             vencido             = document.getElementById("vencido").innerText;
 
-                let parametros =             "opc=finalizarCRM"                       +
-                "&numeroAgente="            +   numeroAgente                          +
-                "&nombreAgente="            +   nombreAgente                          +
-                "&numeroCliente="           +   numeroCliente                         +
-                "&nombreCliente="           +   nombreCliente                         +
-                "&numeroTelefono="          +   numeroTelefono                        +
-                "&fechaNacimiento="         +   fechaNacimiento                       +
-                "&sexo="                    +   sexo                                  +
-                "&sestadoCivil="            +   sestadoCivil                          +
-                "&tipotelefono="            +   tipotelefono                          +
-                "&domicilio="               +   domicilio                             +
-                "&puntualidad="             +   puntualidad                           +
-                "&situacionEspecial="       +   situacionEspecial                     +
-                "&vencido="                 +   vencido                               +
-                "&sestado="                 +   camposCRM[0]                          +
-                "&municipio="               +   camposCRM[1]                          +
-                "&colonia="                 +   camposCRM[2]                          +
-                "&calle="                   +   camposCRM[3]                          +
-                "&entreCalles="             +   camposCRM[4]                          +
-                "&codigoPostal="            +   codigoPostal                          +
-                "&numInterior="             +   camposCRM[5]                          +
-                "&numExterior="             +   camposCRM[6]                          +
-                "&edificio="                +   camposCRM[7]                          +
-                "&complemento="             +   camposCRM[8]                          +
-                "&telefonoAdicional="       +   telefonoAdicional                     +
-                "&tipoTelefonoAdicional="   +   selectTipoT.value                     +
-                "&quienContesto="           +   selectContesto.selectedIndex          +
-                "&resultadoLlamada="        +   selectFin.selectedIndex               +
-                "&horainicio="              +   fec_horainicio                        +
+                let parametros =             "opc=finalizarCRM"                         +
+                "&numeroAgente="            +   numeroAgente                            +
+                "&nombreAgente="            +   nombreAgente                            +
+                "&numeroCliente="           +   numeroCliente                           +
+                "&nombreCliente="           +   nombreCliente                           +
+                "&numeroTelefono="          +   numeroTelefono                          +
+                "&fechaNacimiento="         +   fechaNacimiento                         +
+                "&sexo="                    +   sexo                                    +
+                "&sestadoCivil="            +   sestadoCivil                            +
+                "&tipotelefono="            +   tipotelefono                            +
+                "&domicilio="               +   domicilio                               +
+                "&puntualidad="             +   puntualidad                             +
+                "&situacionEspecial="       +   situacionEspecial                       +
+                "&vencido="                 +   vencido                                 +
+                "&sestado="                 +   camposCRM[0]                            +
+                "&municipio="               +   camposCRM[1]                            +
+                "&colonia="                 +   camposCRM[2]                            +
+                "&calle="                   +   camposCRM[3]                            +
+                "&entreCalles="             +   camposCRM[4]                            +
+                "&codigoPostal="            +   codigoPostal                            +
+                "&numInterior="             +   camposCRM[5]                            +
+                "&numExterior="             +   camposCRM[6]                            +
+                "&edificio="                +   camposCRM[7]                            +
+                "&complemento="             +   camposCRM[8]                            +
+                "&telefonoAdicional="       +   telefonoAdicional                       +
+                "&tipoTelefonoAdicional="   +   selectTipoT.value                       +
+                "&quienContesto="           +   selectContesto.selectedIndex            +
+                "&resultadoLlamada="        +   selectFin.value                         +
+                "&horainicio="              +   fec_horainicio                          +
                 "&id="                      +   Math.random();
                 $.ajax({
                     cache: false,

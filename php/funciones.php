@@ -210,7 +210,7 @@ class Captura {
         // $arrayCombo = array();
 
         //Realizar consulta
-        $sQuery = "Select ID, Fin_de_Gestion Descripcion From Actualizacion_de_Domicilios_L_y_M_Fines_de_Gestion Where Origen iLike 'Ejecutivo';";
+        $sQuery = "Select ID, Fin_de_Gestion Descripcion From Actualizacion_de_Domicilios_L_y_M_Fines_de_Gestion Where Origen iLike 'Ejecutivo' Order By ID;";
 
         //Guardar nuestro query en una variable y cerramos conexión con el servidor
         $Consulta = pg_query($conn, $sQuery);
